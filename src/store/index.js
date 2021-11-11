@@ -1,8 +1,15 @@
-import { createStore } from 'vuex'
-import heropy from './heropy'
+import Vuex from 'vuex'
+import state from './state'
+// import getters from './getters'
+import mutations from './mutations'
+import actions from './actions'
 
-export default createStore({
+const store = new Vuex.Store({
   modules: {
-    heropy
+    state,
+    mutations,
+    actions
   }
 })
+
+export default store

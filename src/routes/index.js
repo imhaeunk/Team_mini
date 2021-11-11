@@ -1,18 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from './Home'
-import About from './About'
+import Home from './Home.vue'
+import Login from './Login.vue'
+import Signup from './Signup.vue'
+import Admin from './Admin.vue'
+import Query from './Query.vue'
+import NotFound from './NotFound.vue'
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
-  scrollBehavior: () => ({ top: 0 }),
+  scrollBehavior() {
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
       component: Home
     },
     {
-      path: '/about',
-      component: About
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/signup',
+      component: Signup
+    },
+    {
+      path: '/admin',
+      component: Admin
+    },
+    {
+      path: '/admin/query',
+      component: Query
+    },
+    {
+      path: '/:notFound(.*)',
+      component: NotFound
     }
   ]
 })
+
+export default router
